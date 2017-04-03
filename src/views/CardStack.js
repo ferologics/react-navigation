@@ -580,7 +580,7 @@ class CardStack extends Component<DefaultProps, Props, void> {
         renderScene={(sceneProps: *) =>{
           if (props.scene.route.routeName == 'List') {
             const { demoListType } = this.props
-            sceneProps.navigation.state = { ...sceneProps.navigation.state, demoListType }
+            sceneProps.navigation.state = { ...sceneProps.navigation.state, params: demoListType }
           }
           
           return this._renderInnerCard(SceneComponent, sceneProps)
