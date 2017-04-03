@@ -579,11 +579,11 @@ class CardStack extends Component<DefaultProps, Props, void> {
         panHandlers={null}
         renderScene={(sceneProps: *) =>{
           if (props.scene.route.routeName == 'List') {
-            const SC = () => <SceneComponent demoListType = { this.props.demoListType || undefined }/>
-            this._renderInnerCard(SC, sceneProps)
-          } else {
-            this._renderInnerCard(SceneComponent, sceneProps)
+            const { demoListType } = this.props
+            sceneProps.navigation.state = { ...sceneProps.navigation.state, demoListType }
           }
+          
+          return this._renderInnerCard(SceneComponent, sceneProps)
         }}
         style={[style, this.props.cardStyle]}
       />
